@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="15dp"
+    android:background="@drawable/kaktus"
+    tools:context=".MainActivity2">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="10dp">
+            <ImageView
+                android:id="@+id/btnBatal"
+                android:layout_width="50dp"
+                android:backgroundTint="@color/black"
+                android:layout_height="40dp"
+                android:src="@drawable/back1"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tambah Catatan"
+                android:fontFamily="casual"
+                android:layout_gravity="center"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:textStyle="bold"/>
+        </FrameLayout>
+        <com.google.android.material.textfield.TextInputEditText
+            android:padding="10dp"
+            android:fontFamily="cursive"
+            android:layout_marginTop="10dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:background="@drawable/da"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Judul"
+            android:textSize="20sp"
+            android:id="@+id/etTitle"/>
+        <com.google.android.material.textfield.TextInputEditText
+            android:padding="10dp"
+            android:background="@drawable/da"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Isi"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:fontFamily="serif-monospace"
+            android:layout_marginTop="10dp"
+            android:id="@+id/etDesc"/>
+        <Button
+            android:id="@+id/btn_Save"
+            android:background="@drawable/daa"
+            android:fontFamily="casual"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/birutua"
+            android:layout_gravity="center"
+            android:text="Simpan"/>
+
+
+    </LinearLayout>
+
+
+</ScrollView>
