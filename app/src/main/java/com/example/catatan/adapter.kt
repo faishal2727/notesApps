@@ -5,27 +5,33 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.catatan.databinding.ItemPostBinding
 
-class adapter(private val User : MutableList<ModelData> = mutableListOf(),private  val Litener : clickAdapter):RecyclerView.Adapter<adapter.userViewHolder>() {
-    inner class userViewHolder(a : View) : RecyclerView.ViewHolder(a){
-        val tvTitle : TextView = a.findViewById(R.id.tvTitle)
-        val tvDesc : TextView = a.findViewById(R.id.tvDesc)
-
+class adapter(private val User : MutableList<ModelData> = mutableListOf(),
+              private val Litener : clickAdapter):RecyclerView.Adapter<adapter.userViewHolder>() {
+    inner class userViewHolder(val binding: ItemPostBinding ) : RecyclerView.ViewHolder(binding.root){
+        val tvTitle : TextView = binding.tvTitle
         fun bindView (tampung : ModelData){
             tvTitle.text = tampung.getTitle()
-            tvDesc.text = tampung.getDesc()
         }
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): adapter.userViewHolder {
-        return userViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_post,parent,false))
+        return userViewHolder (ItemPostBinding.inflate(LayoutInflater.from(parent.context),parent,false))
     }
     override fun getItemCount(): Int {
         return  User.size
     }
     override fun onBindViewHolder(holder: adapter.userViewHolder, position: Int) {
         holder.bindView(User[position])
-        holder.itemView.setOnClickListener {
-            Litener.onClick(User[position])
+        holder.binding.apply {
+        data.setOnClickListener {
+        Litener.onClick(User[position])
+        }
+        }
+            holder.binding.apply {
+            edit.setOnClickListener {
+                Litener.onEdit(User[position])
+            }
         }
     }
     fun setData(data : List<ModelData>){
@@ -35,5 +41,6 @@ class adapter(private val User : MutableList<ModelData> = mutableListOf(),privat
     }
     interface clickAdapter {
         fun onClick(user : ModelData)
+        fun onEdit(user: ModelData)
     }
 }

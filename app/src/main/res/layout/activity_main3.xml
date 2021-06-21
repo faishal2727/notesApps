@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/kaktus"
+    android:background="@drawable/bg2"
     android:padding="15dp"
     tools:context=".MainActivity3">
     <LinearLayout
@@ -29,7 +29,7 @@
                 android:fontFamily="casual"
                 android:layout_gravity="center"
                 android:textSize="20sp"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textStyle="bold"/>
             <ImageView
                 android:id="@+id/btnDelete"
@@ -40,7 +40,7 @@
                 android:src="@drawable/delet"
                 android:textColor="@color/black"/>
     </FrameLayout>
-    <EditText
+        <com.google.android.material.textfield.TextInputEditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@color/black"
@@ -52,7 +52,6 @@
         android:hint="Judul"
         android:layout_marginTop="10dp"
         android:id="@+id/etTitle1"/>
-
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -77,5 +76,4 @@
         android:layout_marginTop="10dp"
         android:layout_gravity="center"/>
     </LinearLayout>
-
 </ScrollView>

@@ -1,41 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:layout_margin="10dp">
-
-    <LinearLayout
+    app:cardCornerRadius="5dp"
+    android:elevation="10dp"
+    android:layout_margin="10dp"
+    android:layout_height="70dp">
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/data"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_margin="4dp"
-        android:background="@drawable/da"
-        android:padding="4dp">
+        android:background="@color/teal_200"
+        android:padding="10dp">
         <TextView
             android:id="@+id/tvTitle"
-            android:text="Notes"
-            android:textStyle="bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:minLines="2"
             android:fontFamily="cursive"
-            android:padding="8dp"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:textColor="@color/black"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="25sp" />
-        <TextView
-            android:id="@+id/tvDesc"
-            android:text="Notes"
-            android:padding="10dp"
-            android:fontFamily="serif-monospace"
-            android:layout_marginTop="5dp"
-            android:layout_width="match_parent"
-            android:textColor="@color/black"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="Placeholder"
+            android:textColor="@color/white"
+            android:textSize="25sp"
             android:textStyle="bold"
-            android:layout_height="wrap_content"
-            android:textSize="18sp" />
-
-    </LinearLayout>
-</LinearLayout>
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <ImageView
+            android:id="@+id/edit"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/edit"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

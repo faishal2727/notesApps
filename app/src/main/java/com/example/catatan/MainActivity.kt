@@ -12,12 +12,16 @@ import io.realm.kotlin.toChangesetFlow
 import io.realm.mongodb.User
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_main2.*
+import kotlinx.android.synthetic.main.item_post.*
 import java.lang.Exception
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
     lateinit var adapter : adapter
     lateinit var realm: Realm
+    private var back : Long = 0
+    private var toast : Toast? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -25,14 +29,34 @@ class MainActivity : AppCompatActivity() {
         getAllDAta()
         ParsingAdd()
     }
+    override fun onBackPressed() {
+        if(back + 2000 > System.currentTimeMillis()) {
+            toast?.cancel()
+            super.onBackPressed()
+            return
+        }
+        else{
+            toast =Toast.makeText(applicationContext,"Tekan Satu Kali Lagi Untuk Keluar", Toast.LENGTH_LONG)
+            toast?.show()
+        }
+        back = System.currentTimeMillis()
+    }
     private fun getAllDAta(){
         binding.RV.layoutManager = LinearLayoutManager(this)
         adapter = adapter(mutableListOf(),object : adapter.clickAdapter{
             override fun onClick(user: ModelData) {
-                startActivity(Intent(this@MainActivity,MainActivity3::class.java)
+                startActivity(Intent(this@MainActivity,detailActivity::class.java)
                     .putExtra("Id",user.getId())
                     .putExtra("Judul",user.getTitle())
                     .putExtra("Isi",user.getDesc())
+                )
+                finish()
+            }
+            override fun onEdit(user: ModelData) {
+                startActivity(Intent(this@MainActivity,MainActivity3::class.java)
+                        .putExtra("Id",user.getId())
+                        .putExtra("Judul",user.getTitle())
+                        .putExtra("Isi",user.getDesc())
                 )
                 finish()
             }

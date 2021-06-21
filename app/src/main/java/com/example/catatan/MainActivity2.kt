@@ -1,8 +1,11 @@
 package com.example.catatan
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.WindowManager
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import io.realm.Realm
 import kotlinx.android.synthetic.main.activity_main2.*
@@ -15,6 +18,7 @@ class MainActivity2 : AppCompatActivity() {
         view()
         addData()
         btnBack()
+        hideKeyboard()
     }
     private fun view(){
         realm = Realm.getDefaultInstance()
@@ -44,5 +48,17 @@ class MainActivity2 : AppCompatActivity() {
             startActivity(Intent(this,MainActivity::class.java))
             finish()
         }
+    }
+    private fun hideKeyboard(){
+        val view = this.currentFocus
+        if (view != null){
+            val hideMe = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            hideMe.hideSoftInputFromWindow(view.windowToken, 0)
+        }
+        window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN)
+    }
+    override fun onBackPressed() {
+        startActivity(Intent(this, MainActivity::class.java))
+        finish()
     }
 }
