@@ -1,6 +1,7 @@
 package com.example.catatan
 
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -28,6 +29,24 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         getAllDAta()
         ParsingAdd()
+        gitHub()
+    }
+    private fun gitHub(){
+        btnGithub.setOnClickListener {
+            val github = Intent(Intent.ACTION_VIEW)
+            github.setData(Uri.parse("https://www.github.com/muhfaishalrizal/notesApps"))
+            startActivity(github)
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        nama()
+    }
+    private fun nama(){
+        val nama1 = intent.getStringExtra("satu")
+        val full = "$nama1"
+        NamaUser.text = "$full"
     }
     override fun onBackPressed() {
         if(back + 2000 > System.currentTimeMillis()) {
@@ -35,11 +54,8 @@ class MainActivity : AppCompatActivity() {
             super.onBackPressed()
             return
         }
-        else{
-            toast =Toast.makeText(applicationContext,"Tekan Satu Kali Lagi Untuk Keluar", Toast.LENGTH_LONG)
-            toast?.show()
-        }
         back = System.currentTimeMillis()
+        finish()
     }
     private fun getAllDAta(){
         binding.RV.layoutManager = LinearLayoutManager(this)

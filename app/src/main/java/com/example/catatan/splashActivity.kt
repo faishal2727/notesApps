@@ -14,7 +14,7 @@ class splashActivity : AppCompatActivity() {
         teksFR.animate().setDuration(1800).alpha(1f).withEndAction(){
         }
         fr.animate().setDuration(1800).alpha(1f).withEndAction(){
-            val i = Intent(this, MainActivity::class.java)
+            val i = Intent(this, inputActivity::class.java)
             startActivity(i)
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
             finish()

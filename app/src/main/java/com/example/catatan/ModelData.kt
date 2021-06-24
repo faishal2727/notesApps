@@ -8,6 +8,8 @@ open class ModelData(): RealmObject() {
     private var Id : Int? = null
     private var Title : String = ""
     private var Descripsions : String? = null
+    private var Nama : String = ""
+    private var Email : String = ""
 
     fun setId(Id : Int){
         this.Id = Id
@@ -26,5 +28,17 @@ open class ModelData(): RealmObject() {
     }
     fun getDesc(): String?{
         return Descripsions
+    }
+    fun setNama(Nama : String){
+        this.Nama = Nama
+    }
+    fun getNama(): String?{
+        return Nama
+    }
+    fun setEmail(Email : String){
+        this.Email = Email
+    }
+    fun getEmail(): String?{
+        return Email
     }
 }

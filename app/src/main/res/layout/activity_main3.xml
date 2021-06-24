@@ -5,8 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/bg2"
-    android:padding="15dp"
     tools:context=".MainActivity3">
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,9 +13,12 @@
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@color/teal_700"
             android:layout_marginBottom="10dp">
             <ImageView
+                android:layout_marginTop="@dimen/_10sdp"
                 android:id="@+id/btnBack"
+                android:layout_marginBottom="@dimen/_10sdp"
                 android:layout_width="50dp"
                 android:layout_height="40dp"
                 android:backgroundTint="@color/black"
@@ -32,6 +33,7 @@
                 android:textColor="@color/white"
                 android:textStyle="bold"/>
             <ImageView
+                android:layout_marginRight="@dimen/_10sdp"
                 android:id="@+id/btnDelete"
                 android:layout_width="40dp"
                 app:itemIconTint="@color/white"
@@ -40,40 +42,48 @@
                 android:src="@drawable/delet"
                 android:textColor="@color/black"/>
     </FrameLayout>
-        <com.google.android.material.textfield.TextInputEditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:background="@drawable/da"
-        android:fontFamily="cursive"
-        android:padding="10dp"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:hint="Judul"
-        android:layout_marginTop="10dp"
-        android:id="@+id/etTitle1"/>
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:hint="Isi"
-        android:textSize="20sp"
-        android:fontFamily="serif-monospace"
-        android:background="@drawable/da"
-        android:padding="10dp"
-        android:layout_marginTop="10dp"
-        android:id="@+id/etDEsc1"/>
-    <Button
-        android:id="@+id/btnEdit"
-        android:layout_width="100dp"
-        android:text="Edit"
-        android:background="@drawable/daa"
-        android:textSize="15sp"
-        android:fontFamily="casual"
-        android:textStyle="bold"
-        android:layout_height="wrap_content"
-        android:textColor="@color/birutua"
-        android:layout_marginTop="10dp"
-        android:layout_gravity="center"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/_7sdp">
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:background="@drawable/da"
+                android:fontFamily="cursive"
+                android:padding="10dp"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:hint="Judul"
+                android:layout_marginTop="10dp"
+                android:id="@+id/etTitle1"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:hint="Isi"
+                android:textSize="15sp"
+                android:background="@drawable/da"
+                android:padding="10dp"
+                android:layout_marginTop="10dp"
+                android:id="@+id/etDEsc1"/>
+        </LinearLayout>
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btnEdit"
+            android:layout_width="93dp"
+            android:backgroundTint="@color/teal_700"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:padding="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:elevation="4dp"
+            android:tint="@android:color/white"
+            app:fabSize="normal"
+            android:src="@drawable/save"
+            app:layout_anchor="@+id/bottomAppBar"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_10sdp"/>
     </LinearLayout>
 </ScrollView>

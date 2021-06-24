@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.catatan.databinding.ItemPostBinding
+import kotlinx.android.synthetic.main.item_post.view.*
 
 class adapter(private val User : MutableList<ModelData> = mutableListOf(),
               private val Litener : clickAdapter):RecyclerView.Adapter<adapter.userViewHolder>() {
